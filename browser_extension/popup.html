@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>旋風 studio 登錄助手</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 290px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Noto Sans TC", sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 16px;
+      font-size: 13px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #1e293b;
+    }
+    .header img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+    }
+    .header-text {
+      flex: 1;
+    }
+    .title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.2px;
+    }
+    .version {
+      font-size: 11px;
+      color: #64748b;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #64748b;
+    }
+    .dot.ok { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
+    .dot.warn { background: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.6); }
+    .dot.err { background: #ef4444; box-shadow: 0 0 8px rgba(239, 68, 68, 0.6); }
+    .status-title {
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+    .status-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    button.btn-primary {
+      width: 100%;
+      height: 38px;
+      border: 0;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #02af4a, #059669);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(2, 175, 74, 0.25);
+    }
+    button.btn-primary:hover {
+      background: linear-gradient(135deg, #059669, #047857);
+      transform: translateY(-1px);
+    }
+    button.btn-primary:active {
+      transform: translateY(0);
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 11px;
+    }
+    .footer-links a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon48.png" alt="logo">
+    <div class="header-text">
+      <div class="title">旋風 studio 登錄助手</div>
+      <div class="version">v1.0.0 · 自動雙向同步</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="status-row">
+      <div id="dot" class="dot"></div>
+      <div id="statusTitle" class="status-title">檢查中...</div>
+    </div>
+    <div id="statusDesc" class="status-desc">正在檢測 Suno 標籤頁及旋風 studio 客戶端連線...</div>
+  </div>
+
+  <button id="sendBtn" class="btn-primary">
+    <span>⚡ 即刻同步至旋風 studio</span>
+  </button>
+
+  <div class="footer-links">
+    <a href="https://suno.com" target="_blank" id="openSuno">開啟 Suno 官網</a>
+    <span style="color:#475569;">端口: 23940</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

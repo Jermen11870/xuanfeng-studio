@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "旋風 studio 登錄助手",
+  "description": "自動監測並將瀏覽器中的 Suno 登入憑證無縫同步至旋風 studio 本地客戶端。",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "cookies"
+  ],
+  "host_permissions": [
+    "https://suno.com/*",
+    "https://www.suno.com/*",
+    "http://127.0.0.1:23940/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://suno.com/*",
+        "https://www.suno.com/*"
+      ],
+      "js": [
+        "page_probe.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://suno.com/*",
+        "https://www.suno.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "world": "ISOLATED",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_title": "旋風 studio 登錄助手",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}
